@@ -1,0 +1,59 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+header,footer,aside,nav,article{
+	padding: 1em;
+	font-size: 20px;
+
+}
+
+.flex-container{
+	display:flex;
+	flex-direction: column;
+	min-height: 100vh;
+}
+
+#main{
+	display: flex;
+	flex-direction: column;
+	flex: 1 0 auto;
+
+}
+
+@media screen and (min-width:576px){
+	#main{
+		flex-direction: row;
+	}
+}
+
+header{
+	
+	flex: 0 0 10vh;
+	background-color: blue;
+
+}
+
+footer{
+	background-color: red;
+	flex: 0 0 10vh;
+}
+
+aside{
+	flex: 0 0 10vw;
+	background-color: yellow;
+
+}
+
+article{
+	flex: 1 1 auto;
+	background-color: #778899;
+}
+
+nav{
+	flex: 0 0 10vw;
+	background-color: green;
+	order: 2;
+}
