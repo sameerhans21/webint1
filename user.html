@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="static/css/mcss.css">
+
+  <!-- Links for icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+
+  <title>SnapFood</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li class="appname font-effect-outline">SnapFood</li>
+        <li class="usericon"><i class="fa fa-user-circle-o" style="font-size:30px;color:white"></i></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="main-container" class="container">
+
+    <canvas id="mycanvas">
+      <hr>
+    </canvas>
+
+    <form id="registration_form">
+      <h2>Registration</h2>
+      <div>
+        <label>First Name <input name="first_name" required /></label>
+      </div>
+      <div>
+        <label>Last Name <input name="last_name" required /></label>
+      </div>
+      <div>
+        <label>Email <input name="mail" type="email" required /></label>
+      </div>
+      <div>
+        <label>Age <input name="age" type="number" min=0 required /></label>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+    <p><button id="existing_account" onclick="login()">I already have an account
+      </button> </p>
+    
+  <form id="sport_form" class="health_questions">
+    <p> What is your weekly sport frequency? </p>
+  <input type="radio" id="everyday" name="sport" value="everyday">
+  <label for="html">Every day</label><br>
+  <input type="radio" name="sport" id="twomore"  value="twomore">
+  <label for="css">2 times or more</label><br>
+  <input type="radio" name="sport" id="oneless" value="1less">
+  <label for="oneless">Once or less</label>
+    <div>
+    <button type="submit">Next</button>
+    </div>
+</form>
+    <form id="bmi_form" class="health_questions">
+      <p> Please enter your height and weight </p>
+      <div>
+        <label>Height (in cm)<input name="height" required /></label>
+      </div>
+      <div>
+        <label>Weight (in kg)<input name="weight" required /></label>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+
+    <form id="dishes_form" class="health_questions" >           
+        <p>What is your favorite type of food?</p>      
+        <input type="checkbox" name="favorite_food" id="american">American<br>
+      <input type="checkbox" name="favorite_food" id="indian">Indian<br>
+        <input type="checkbox" name="favorite_food" id="italian">Italian<br>      
+        <input type="checkbox" name="favorite_food" id="french">French gastronomy<br>    
+      <input type="checkbox" name="favorite_food" id="african">African<br>
+      <input type="checkbox" name="favorite_food" id="japanese">Japanese<br> 
+        <br>      
+        <input type="submit" value="Submit" />           
+</form>
+    <form id="login_form" class="login_form">
+      <h2>Login</h2>
+      
+        <label>Email <input name="email" required /></label>
+        <button type="submit">Submit</button>
+    </form>
+    
+    <article id="user_display" class="user_display">
+      <h2> 
+      <p id="title_user">
+      </p>
+      </h2>
+      <p id="age">
+      </p>
+      <p id="favorite_dishes_display">Favorite dishes :</p>
+     
+      <p id="bmi_display">
+      </p>
+      <p id="recommendations">
+      </p>
+    </article>
+  </section>
+
+  <footer>
+    <ul>
+      <li>
+        <a href="">
+          <i class="material-icons" style="font-size:30px;color:white">home</i>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="material-icons" style="font-size:30px;color:white">location_on</i>
+        </a>
+      </li>
+
+      <li>
+        <a id="myCamera">
+          <i class="material-icons" style="font-size:30px;color:white">camera_alt</i>
+        </a>
+      </li>
+
+      <li>
+        <a href="static/commom/search.html">
+          <i class="material-icons" style="font-size:30px;color:white">search</i>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <i class="material-icons" style="font-size:30px;color:white">menu</i>
+        </a>
+      </li>
+    </ul>
+  </footer>
+</body>
+
+</html>
