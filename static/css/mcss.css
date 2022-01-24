@@ -76,21 +76,70 @@ footer li {
   padding-top: 30px;
 }
 
-#mycanvas {
-  display: none;
+.f_card {
+  transition: 0.3s;
+  width: 100%;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.f_card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.f_img {
+  border-radius: 5px 5px 0 0;
   width: 100%;
 }
 
-#search-container {
-    
+.f_container {
+  padding: 0;
 }
 
-.uploadphoto {
-    margin: 0;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+#listfood li {
+  display: block;
+  color: black;
+  width: 100%;
+  padding: 16px 0px;
+  text-decoration: none;
+  display: inline-block;
+} 
 
+#listfood_search li {
+  text-decoration: none;
+  width: 100%;
+  display: inline-block;
+}
+
+form.searchform input[type=text] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid grey;
+  float: left;
+  width: 80%;
+  background: #f1f1f1;
+  border: none;
+}
+
+form.searchform button {
+  float: left;
+  width: 20%;
+  padding: 10px;
+  background: teal;
+  color: white;
+  font-size: 17px;
+  border: 1px solid grey;
+  border-left: none;
+  cursor: pointer;
+  border: none;
+}
+
+form.searchform button:hover {
+  background: teal;
+}
+
+form.searchform::after {
+  content: "";
+  clear: both;
+  display: table;
 }

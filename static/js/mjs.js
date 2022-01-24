@@ -1,7 +1,9 @@
+
 var currentUser = null;
 var atualLocation;
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 const date = new Date();
+
 
 function CapturePhoto(event) {
 
@@ -10,13 +12,56 @@ function CapturePhoto(event) {
     event.preventDefault();
 }
 
+function main_list_food () {
+    for (let i = 0; i < 10; i++) {
+        food_item(recipes[i])
+        
+    }
+}
+
+function food_item(recipe) {
+
+    li = document.createElement("LI");
+    li.setAttribute("class", "f_card f_container"); 
+    a = document.createElement("a");
+    // a.setAttribute("href", "#");
+    
+    img_food = document.createElement("img");
+    img_food.setAttribute("src", `${'static/data/img/' + recipe.Image_Name +'.jpg'}`);
+    img_food.setAttribute("class", "f_img");
+
+    div = document.createElement("div");
+    div.setAttribute("class","f_container");
+
+    title = document.createElement("p");
+    title.innerHTML = `<b>${recipe.Title} </b>`;
+
+    description = document.createElement("p");
+    description.innerHTML = 'Description of the content';
+
+    div.appendChild(title);
+    div.appendChild(description);
+
+    
+    a.appendChild(img_food);
+    a.appendChild(div);
+
+    li.appendChild(a);
+
+    document.getElementById("listfood").appendChild(li);
+
+}
+
 window.onload = function () {
 
-    const myCamera = document.querySelector('#myCamera')
+    const myCamera = document.querySelector('#myCamera'); 
     const myCanvas = document.querySelector('#mycanvas');
+
+    main_list_food(); 
 
     myCamera.onclick = function (event) {
         CapturePhoto(event)
     }
+
 
 }
