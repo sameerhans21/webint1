@@ -11,6 +11,11 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link rel="stylesheet" type="text/css" href="../css/camera.css">
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js" defer></script>
+    <script src="../js/camera.js" defer></script>
+
+
 
     <title>SnapFood</title>
 </head>
@@ -24,13 +29,29 @@
             </ul>
         </nav>
     </header>
+    <section>
+        <img id="food_img" src="../cam_icon.jpg" />
+    </section>
 
-    <section id="search-container" class="container">
+    <section id='image_disp' style="font-weight: 900; color:aquamarine; text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;">
 
-        <h3> Map Here </h3>
-        <p> Hello World </p>
+        <p>TOUCH TO ENTER IMAGE</p>
 
     </section>
+    <section class="capture" >
+        <div class="record" />
+        <input 
+        class="input"
+        type="file"
+        accept="image/*"
+        onchange="handleUpload(this.files)"
+        />
+    </div>
+</section>
+<textarea style=" width: 80%; height: 100px; padding: 10px; margin-top: 25%">
+    The power of the presidency has grown substantially since its formation, as has the power of the federal government as a whole.[10] While presidential power has ebbed and flowed over time, the presidency has played an increasingly strong role in American political life since the beginning of the 20th century, with a notable expansion during the presidency of Franklin D. Roosevelt. In contemporary times, the president is also looked upon as one of the world's most powerful political figures as the leader of the only remaining global superpower.[11][12][13][14] As the leader of the nation with the largest economy by nominal GDP, the president possesses significant domestic and international hard and soft power.
+</textarea>
+
 
     <footer>
         <ul>
@@ -40,19 +61,19 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="map.html">
                     <i class="material-icons" style="font-size:30px;color:white">location_on</i>
                 </a>
             </li>
 
             <li>
-                <a id="myCamera">
+                <a id="myCamera" href="camera.html">
                     <i class="material-icons" style="font-size:30px;color:white">camera_alt</i>
                 </a>
             </li>
 
             <li>
-                <a href="../commom/search.html">
+                <a href="search.html">
                     <i class="material-icons" style="font-size:30px;color:white">search</i>
                 </a>
             </li>

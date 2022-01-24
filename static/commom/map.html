@@ -6,11 +6,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/mcss.css">
+    <link rel="stylesheet" href="../css/map.css">
+
+
+    <!-- For MAP -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
 
     <!-- Links for icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <script type="text/javascript" src="../js/map.js"></script>
 
     <title>SnapFood</title>
 </head>
@@ -25,11 +33,19 @@
         </nav>
     </header>
 
-    <section id="search-container" class="container">
+    <section class="container">
 
-        <h3> Map Here </h3>
-        <p> Hello World </p>
+        <p>map is here</p>
+        <h1>MAP</h1>
 
+        <div id='map' style="height: 300px;">curr</div>
+
+        
+
+    </section>
+    <section style="padding: 24px;">
+        <button type="button" id="but1" onclick="loc()">Click to Save location</button><br><br>
+        <div id='loc'>LOC</div>
     </section>
 
     <footer>
@@ -40,19 +56,19 @@
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="map.html">
                     <i class="material-icons" style="font-size:30px;color:white">location_on</i>
                 </a>
             </li>
 
             <li>
-                <a id="myCamera">
+                <a id="myCamera" href="camera.html">
                     <i class="material-icons" style="font-size:30px;color:white">camera_alt</i>
                 </a>
             </li>
 
             <li>
-                <a href="../commom/search.html">
+                <a href="search.html">
                     <i class="material-icons" style="font-size:30px;color:white">search</i>
                 </a>
             </li>
