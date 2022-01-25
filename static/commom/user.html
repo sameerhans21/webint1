@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <link rel="stylesheet" href="../css/mcss.css" />
+  <link rel="stylesheet" href="../css/user.css" />
+
+  <script src="../js/user.js"></script>
+
+  <!-- Links for icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia" />
+
+  <title>SnapFood</title>
+</head>
+
+<body>
+  <header>
+    <nav class="navbar">
+      <ul>
+        <li class="appname font-effect-outline">SnapFood</li>
+        <li class="usericon">
+          <a href="#">
+            <i class="fa fa-user-circle-o" style="font-size: 30px; color: white"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="main-container" class="container">
+
+    <br>
+    <p>
+      <button id="existing_account" onclick="login()">
+        I already have an account
+      </button>
+    </p>
+
+    <form id="registration_form">
+      <h2>Registration</h2>
+      <div class="row">
+        <div class="col-25">
+          <label>First Name </label>
+        </div>
+        <div class="col-75">
+          <input type="text" name="first_name" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label>Last Name </label>
+        </div>
+        <div class="col-75">
+          <input type="text" name="last_name" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label>Email </label>
+        </div>
+        <div class="col-75">
+          <input name="mail" type="email" required />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-25">
+          <label>Age </label>
+        </div>
+        <div class="col-75">
+          <input name="age" type="number" min="0" required />
+        </div>
+      </div>
+
+      <div class="row">
+        <hr />
+        <p>What is your weekly sport frequency?</p>
+        <input type="radio" id="everyday" name="sport" value="everyday" />
+        <label for="html">Every day</label><br />
+        <input type="radio" name="sport" id="twomore" value="twomore" />
+        <label for="css">2 times or more</label><br />
+        <input type="radio" name="sport" id="oneless" value="1less" />
+        <label for="oneless">Once or less</label>
+      </div>
+
+      <div>
+        <hr />
+        <p>Please enter your height and weight</p>
+
+        <div class="row">
+          <div class="col-25">
+            <label>Height (in cm) </label>
+          </div>
+          <div class="col-75">
+            <input type="number" max="400" min="5" name="height" required />
+          </div>
+        </div>
+
+        <div class=" row">
+          <div class="col-25">
+            <label>Weight (in kg) </label>
+          </div>
+
+          <div class="col-75">
+            <input type="number" min="5" name="weight" required />
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <hr>
+        <p>What is your favorite type of food?</p>
+        <input type="checkbox" name="favorite_food" id="american" />American<br />
+        <input type="checkbox" name="favorite_food" id="indian" />Indian<br />
+        <input type="checkbox" name="favorite_food" id="italian" />Italian<br />
+        <input type="checkbox" name="favorite_food" id="french" />French
+        gastronomy<br />
+        <input type="checkbox" name="favorite_food" id="african" />African<br />
+        <input type="checkbox" name="favorite_food" id="japanese" />Japanese<br />
+        <br />
+      </div>
+      <hr>
+
+      <div>
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+
+    <br>
+
+    <form id="login_form" class="login_form">
+      <h2>Login</h2>
+      <div class="row">
+        <input type="email" name="email" placeholder="Insert you email to login" required />
+      </div>
+
+      <div class="row">
+        <input type="submit" value="Login">
+      </div>
+    </form>
+
+    <article id="user_display" class="user_display">
+      <h2>
+        <p id="title_user"></p>
+      </h2>
+      <p id="age"></p>
+      <p id="favorite_dishes_display">Favorite dishes :</p>
+
+      <p id="bmi_display"></p>
+      <p id="recommendations"></p>
+    </article>
+
+  </section>
+
+  <footer>
+    <ul>
+      <li>
+        <a href="../../index.html">
+          <i class="material-icons" style="font-size: 30px; color: white">home</i>
+        </a>
+      </li>
+      <li>
+        <a href="../commom/map.html">
+          <i class="material-icons" style="font-size: 30px; color: white">location_on</i>
+        </a>
+      </li>
+
+      <li>
+        <a href="../commom/camera.html" id="myCamera">
+          <i class="material-icons" style="font-size: 30px; color: white">camera_alt</i>
+        </a>
+      </li>
+
+      <li>
+        <a href="../commom/search.html">
+          <i class="material-icons" style="font-size: 30px; color: white">search</i>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <i class="material-icons" style="font-size: 30px; color: white">menu</i>
+        </a>
+      </li>
+    </ul>
+  </footer>
+</body>
+
+</html>

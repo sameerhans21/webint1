@@ -5,12 +5,6 @@ const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", 
 const date = new Date();
 
 
-function CapturePhoto(event) {
-
-    videoBubble.style.display = 'initial';
-    videoBubble.play();
-    event.preventDefault();
-}
 
 function main_list_food () {
     for (let i = 0; i < 10; i++) {
@@ -54,14 +48,6 @@ function food_item(recipe) {
 
 window.onload = function () {
 
-    const myCamera = document.querySelector('#myCamera'); 
-    const myCanvas = document.querySelector('#mycanvas');
-
     main_list_food(); 
-
-    myCamera.onclick = function (event) {
-        CapturePhoto(event)
-    }
-
 
 }
