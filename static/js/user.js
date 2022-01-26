@@ -27,14 +27,14 @@ function userDisplay(mail) {
         "Be careful, your BMI is below the recommended level, you should eat more. Use SnapFood searchbar to find a dish that suits you."
       )
     );
-  if (18.5 <= bmi < 24)
+  if (18.5 <= bmi & bmi < 24)
     recommendations.appendChild(
       document.createTextNode(
         "You have a healthy BMI. You can eat whatever food you want."
       )
     );
 
-  if (25 <= bmi < 30)
+  if (25 <= bmi & bmi < 30)
     recommendations.appendChild(
       document.createTextNode(
         "Be careful, you are overweight. Use SnapFood searchbar to find healthy food that you like. "
