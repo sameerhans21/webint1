@@ -72,7 +72,7 @@ window.onload = function () {
   const favorite_dishes_display = document.querySelector("#bmi_display");
   const recommendations = document.querySelector("#recommendations");
   
-existing_account.style.display= "" ;
+  existing_account.style.display= "" ;
   existing_account.onclick = function (event) {
     showLogin(event);
     existing_account.style.display= "none" ;
