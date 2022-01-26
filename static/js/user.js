@@ -1,10 +1,10 @@
-var logged_in = false;
-
+var isLoged = false;
+var userLoged = null;
 
 function userDisplay(mail) {
+
   user_display.style.display = "initial";
   var user_info = JSON.parse(sessionStorage.getItem(mail));
-
   title_user.appendChild(
     document.createTextNode(user_info[0] + " " + user_info[1])
   );
@@ -28,14 +28,14 @@ function userDisplay(mail) {
         "Be careful, your BMI is below the recommended level, you should eat more. Use SnapFood searchbar to find a dish that suits you."
       )
     );
-  if (18.5 <= bmi & bmi < 24)
+  if ((18.5 <= bmi) & (bmi < 24))
     recommendations.appendChild(
       document.createTextNode(
         "You have a healthy BMI. You can eat whatever food you want."
       )
     );
 
-  if (25 <= bmi & bmi < 30)
+  if ((25 <= bmi) & (bmi < 30))
     recommendations.appendChild(
       document.createTextNode(
         "Be careful, you are overweight. Use SnapFood searchbar to find healthy food that you like. "
@@ -50,19 +50,15 @@ function userDisplay(mail) {
     );
 }
 
-
-
 function showLogin(event) {
   user_display.style.display = "none";
   login_form.style.display = "initial";
-
   registration_form.style.display = "none";
   event.preventDefault();
 }
 
 window.onload = function () {
-
-  const existing_account = document.querySelector('#existing_account');
+  const existing_account = document.querySelector("#existing_account");
   const user_display = document.querySelector("#user_display");
   const registration_form = document.querySelector("#registration_form");
   const login_form = document.querySelector("#login_form");
@@ -71,18 +67,28 @@ window.onload = function () {
   const age = document.querySelector("#age");
   const favorite_dishes_display = document.querySelector("#bmi_display");
   const recommendations = document.querySelector("#recommendations");
-  
-  existing_account.style.display= "" ;
+  const logoutbtn = document.querySelector('#logoutbtn');
+
+  isLoged = sessionStorage.getItem("isLoged");
+
+  if (isLoged) {
+    user_display.style.display = "initial";
+    login_form.style.display = "none";
+    registration_form.style.display = "none";
+    emailUserLoged = sessionStorage.getItem("userLoged");
+    userDisplay(emailUserLoged);
+  }
+
+  existing_account.style.display = "";
   existing_account.onclick = function (event) {
     showLogin(event);
-    existing_account.style.display= "none" ;
+    existing_account.style.display = "none";
   };
 
-
   registration_form.addEventListener("submit", function (event) {
-    
     event.preventDefault();
-    existing_account.style.display= "none" ;
+    existing_account.style.display = "none";
+
     registration_mail = registration_form.querySelector(
       `input[name=${"mail"}]`
     ).value;
@@ -105,8 +111,12 @@ window.onload = function () {
     if (twomore.checked) user_info.push("twomore");
     if (oneless.checked) user_info.push("oneless");
 
-    user_info.push(registration_form.querySelector(`input[name=${"height"}]`).value);
-    user_info.push(registration_form.querySelector(`input[name=${"weight"}]`).value);
+    user_info.push(
+      registration_form.querySelector(`input[name=${"height"}]`).value
+    );
+    user_info.push(
+      registration_form.querySelector(`input[name=${"weight"}]`).value
+    );
 
     var american = document.querySelector("#american");
     var indian = document.querySelector("#indian");
@@ -126,20 +136,32 @@ window.onload = function () {
     registration_form.style.display = "none";
     existing_account.style.display = "none";
 
+    isLoged = true;
+
+    sessionStorage.setItem('isLoged', isLoged);  
+    sessionStorage.setItem('userLoged', registration_mail);
+    
     userDisplay(registration_mail);
-
   });
-
 
   login_form.addEventListener("submit", function (event) {
     event.preventDefault();
     var login_mail = login_form.querySelector(`input[name=${"email"}]`).value;
     if (sessionStorage.getItem(login_mail)) {
       login_form.style.display = "none";
+      isLoged = true;
+      sessionStorage.setItem('isLoged', isLoged);
+      sessionStorage.setItem('userLoged', login_mail);
       userDisplay(login_mail);
     }
   });
 
-
+  logoutbtn.onclick = function (event) {
+    isLoged = false;
+    sessionStorage.removeItem('isLoged');
+    sessionStorage.removeItem('userLoged');    
+    window.location.href = "../../index.html";
+    event.preventDefault();
+  };
 
 };

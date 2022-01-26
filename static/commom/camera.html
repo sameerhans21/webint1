@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="../css/mcss.css" />
 
     <!-- Script for data -->
-    <script type="text/javascript" src="../data/recipes.js"></script>
-    <script type="text/javascript" src="../data/data_recipes_2.js"></script>
+    <script  src="../data/recipes.js"></script>
+    <script  src="../data/data_recipes_2.js"></script>
 
     <!-- Links for icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
@@ -44,17 +44,18 @@
             <video id="video_preview" class="photo_preview" autoplay></video>
 
             <div class="btn-group">
-                <button id="snap" style="border-radius: 55%"><i class="material-icons"
+                
+                <div id="snap" style="border-radius: 55%"><i class="material-icons"
                         style="font-size:48px;color:red">camera_alt</i>
-                </button>
+                </div>
 
-                <button id="upload" style="border-radius: 55%">
+                <div id="upload" style="border-radius: 55%">
                     <input type="file" name="file" id="file" class="inputfile" accept="image/*"
                         onchange="handleUpload(this.files)" />
                     <label for="file">
                         <i class="material-icons" style="font-size:48px;color:green">add_a_photo</i>
                     </label>
-                </button>
+                </div>
 
             </div>
 
