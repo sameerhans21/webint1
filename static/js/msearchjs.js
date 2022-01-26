@@ -25,8 +25,17 @@ function food_item(recipe) {
     title = document.createElement("p");
     title.innerHTML = `<b>${recipe.Title} </b>`;
 
-    description = document.createElement("p");
-    description.innerHTML = 'Description of the content';
+    description = document.createElement("DETAILS");
+    summary = document.createElement("summary");
+    summary.innerHTML = "Description";
+    description.appendChild(summary);
+
+    text = document.createElement("p");
+    text.innerHTML =`<b>Ingredientes : </b>${recipe.Cleaned_Ingredients}
+                    <p> <b> Instructions  : </b> ${recipe.Instructions} </p>`;
+
+    description.appendChild(text)
+
 
     div.appendChild(title);
     div.appendChild(description);
@@ -46,7 +55,8 @@ function searchFood(event, name, _form) {
     keyword = keyword.toLowerCase();
     let find_some = false
     let counter = 0;
-    document.getElementById("listfood_search").innerHTML ='';
+    div = document.getElementById("listfood_search");
+    div.innerHTML ='';
 
     for (let i = 0; i < recipes.length ; i++) {
 
@@ -64,10 +74,13 @@ function searchFood(event, name, _form) {
             break;
         }
     }
-    if (counter===0) {
-        console.log(counter)
-       
-    }
+
+    if (counter === 0) {
+        div_empty = document.createElement("DIV");
+        // div_empty.setAttribute("class", "div_centered");
+        div_empty.innerHTML = '<i class="material-icons" style="font-size:48px;color:red">info</i> </br> <p><b> Sorry I didint find a match! </b> </p>';    
+        div.appendChild(div_empty)
+      }
 
     event.preventDefault();
 }

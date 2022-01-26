@@ -4,14 +4,16 @@ var image = new Image();
 
 async function classifyImage() {
   const results = await classifier.classify(image);
-  console.log(results);
+
+  var find_some = false; 
 
   div = document.getElementById("description_food");
   div.innerHTML = "";
   result_html = document.createElement("p");
-
+  
+  
   text = results[0].label;
-  result_html.innerHTML = `${text}`;
+  result_html.innerHTML = `<b>Model Predict :</b>${text}`;
 
   keyword = text;
 
@@ -35,9 +37,20 @@ async function classifyImage() {
 
       div.appendChild(title_html);
       div.appendChild(description);
+      find_some = true;
       break;
     }
 
+  }
+  
+  console.log(!find_some);
+
+  if (!find_some) {
+    div_empty = document.createElement("DIV");
+    // div_empty.setAttribute("class", "");
+    div_empty.innerHTML = '<i class="material-icons " style="font-size:48px;color:red">info</i> </br> <p> Sorry I Didint find a match </p>';
+
+    div.appendChild(div_empty)
   }
 
   div.appendChild(result_html);

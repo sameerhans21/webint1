@@ -47,7 +47,6 @@ function drawMap(position) {
                 'latitue': lat,
                 'longitude': lon,
             };
-
 			console.log(atualLocation)
 
         }

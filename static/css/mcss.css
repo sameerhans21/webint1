@@ -96,7 +96,9 @@ footer li {
 }
 
 .f_container {
-  padding: 0;
+  padding: 16px;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 #listfood li {
@@ -145,4 +147,12 @@ form.searchform::after {
   content: "";
   clear: both;
   display: table;
+}
+
+.div_centered {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50);
 }
