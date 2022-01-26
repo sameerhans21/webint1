@@ -5,13 +5,12 @@ var image = new Image();
 async function classifyImage() {
   const results = await classifier.classify(image);
 
-  var find_some = false; 
+  var find_some = false;
 
   div = document.getElementById("description_food");
   div.innerHTML = "";
   result_html = document.createElement("p");
-  
-  
+
   text = results[0].label;
   result_html.innerHTML = `<b>Model Predict :</b>${text}`;
 
@@ -26,7 +25,6 @@ async function classifyImage() {
 
     if (title.includes(keyword)) {
 
-      // div.setAttribute("class","f_container");
       title_html = document.createElement("p");
 
       title_html.innerHTML = `<b>${recipes[i].Title} </b>`;
@@ -40,48 +38,35 @@ async function classifyImage() {
       find_some = true;
       break;
     }
-
   }
-  
+
   console.log(!find_some);
 
   if (!find_some) {
     div_empty = document.createElement("DIV");
-    // div_empty.setAttribute("class", "");
-    div_empty.innerHTML = '<i class="material-icons " style="font-size:48px;color:red">info</i> </br> <p> Sorry I Didint find a match </p>';
+    div_empty.setAttribute("class", "f_container");
+    div_empty.innerHTML = `<div class ="div_centered"><i class="material-icons " style="font-size:48px;color:red">info</i></div>
+                          <p style="text-align: center;"> Sorry I Didint find a match </p>`;
 
-    div.appendChild(div_empty)
+    div.appendChild(div_empty);
   }
 
   div.appendChild(result_html);
-
 }
 
 function handleUpload(files) {
-
   ctx = canvas.getContext("2d");
-  // ctx.setTransform(-1, 0, 0, 1, 200, 200);
-  // ctx.clearRect(0, 0, canvas.width, canvas.height);
-  
 
   image.onload = function () {
-    ctx.drawImage(image, 0, 0, 300, 200 );
-    };
+    ctx.drawImage(image, 0, 0, 300, 200);
+  };
 
   image.crossOrigin = "anonymous";
   image.src = URL.createObjectURL(files[0]);
   image.width = 300;
   image.height = 200;
-
-  // image.setAttribute('width', '100%');
-  // image.setAttribute('height', '100%');
-
-  // image = convertCanvasToImage(canvas);
-  // classifyImage();
-   setTimeout(classifyImage, 50);
-
+  setTimeout(classifyImage, 50);
 }
-
 
 function convertCanvasToImage(canvas) {
   var image = new Image();
@@ -89,40 +74,25 @@ function convertCanvasToImage(canvas) {
   return image;
 }
 
-function convertImageToCanvas(image) {
-  // var canvas = document.createElement("canvas");
-  canvas.width = image.width;
-  canvas.height = image.height;
-  canvas.getContext("2d").drawImage(image, 0, 0);
-
-  // return canvas;
-}
-
 window.onload = function () {
-
   var canvas = document.querySelector("#canvas");
   var context = canvas.getContext("2d");
   var video = document.querySelector("#video_preview");
   var btnsnap = document.querySelector("#snap");
   var btnupload = document.querySelector("#upload");
 
-
-
   // Trigger photo take
   btnsnap.addEventListener("click", function () {
-
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-      navigator.mediaDevices.getUserMedia({ video: true })
+      navigator.mediaDevices
+        .getUserMedia({ video: true })
         .then(function (stream) {
           video.srcObject = stream;
           video.play();
         });
     }
-    context.drawImage(video, 0, 0, 300, 200);  
+    context.drawImage(video, 0, 0, 300, 200);
     image = convertCanvasToImage(canvas);
     setTimeout(classifyImage, 50);
-
   });
-
-
-}
+};

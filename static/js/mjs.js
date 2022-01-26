@@ -1,20 +1,4 @@
-var currentUser = null;
 var atualLocation;
-const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
-];
-const date = new Date();
 
 function main_list_food() {
     for (let i = 0; i < 10; i++) {

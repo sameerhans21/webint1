@@ -13,14 +13,11 @@ function food_item(recipe) {
     // li.setAttribute("class", "f_card f_container"); 
     a = document.createElement("a");
     // a.setAttribute("href", "#");
-    
+
     img_food = document.createElement("img");
-    img_food.setAttribute("src", `${'../data/img/' + recipe.Image_Name +'.jpg'}`);
-    // img_food.setAttribute("class", "f_img");
-    // console.log(`${'static/data/img/' + recipe.Image_Name +'.jpg'}`)
+    img_food.setAttribute("src", `${'../data/img/' + recipe.Image_Name + '.jpg'}`);
 
     div = document.createElement("div");
-    // div.setAttribute("class","f_container");
 
     title = document.createElement("p");
     title.innerHTML = `<b>${recipe.Title} </b>`;
@@ -31,7 +28,7 @@ function food_item(recipe) {
     description.appendChild(summary);
 
     text = document.createElement("p");
-    text.innerHTML =`<b>Ingredientes : </b>${recipe.Cleaned_Ingredients}
+    text.innerHTML = `<b>Ingredientes : </b>${recipe.Cleaned_Ingredients}
                     <p> <b> Instructions  : </b> ${recipe.Instructions} </p>`;
 
     description.appendChild(text)
@@ -51,22 +48,21 @@ function food_item(recipe) {
 
 function searchFood(event, name, _form) {
     element = _form.querySelector(`input[name=${name}]`);
-    keyword = element.value; 
+    keyword = element.value;
     keyword = keyword.toLowerCase();
     let find_some = false
     let counter = 0;
     div = document.getElementById("listfood_search");
-    div.innerHTML ='';
+    div.innerHTML = '';
 
-    for (let i = 0; i < recipes.length ; i++) {
+    for (let i = 0; i < recipes.length; i++) {
 
-        title =recipes[i].Title;
+        title = recipes[i].Title;
         title = title.toString();
         title = title.toLowerCase();
 
-        if(title.includes(keyword)) {
-            // search_list.push(recipes[i])            
-            food_item(recipes[i]) 
+        if (title.includes(keyword)) {           
+            food_item(recipes[i])
             counter++;
         }
 
@@ -77,10 +73,11 @@ function searchFood(event, name, _form) {
 
     if (counter === 0) {
         div_empty = document.createElement("DIV");
-        // div_empty.setAttribute("class", "div_centered");
-        div_empty.innerHTML = '<i class="material-icons" style="font-size:48px;color:red">info</i> </br> <p><b> Sorry I didint find a match! </b> </p>';    
+        div_empty.setAttribute("class", "f_container");
+        div_empty.innerHTML = `<div class ="div_centered"><i class="material-icons " style="font-size:48px;color:red">info</i></div>
+                          <p style="text-align: center;"> Sorry I Didint find a match </p>`;
         div.appendChild(div_empty)
-      }
+    }
 
     event.preventDefault();
 }

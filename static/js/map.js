@@ -48,6 +48,7 @@ function drawMap(position) {
                 'longitude': lon,
             };
 			console.log(atualLocation)
+            sessionStorage.setItem('atualLocation', JSON.stringify(atualLocation));
 
         }
     };
@@ -60,12 +61,14 @@ function save_loc(position) {
 	var longt = position.coords.longitude;
 	sessionStorage["lat"] = lat;
 	sessionStorage["longt"] = longt;
+
 }
 
 function loc() {
 	var lat = sessionStorage.getItem('lat');
 	var longt = sessionStorage.getItem('longt');
+    atualLocation = JSON.parse( sessionStorage.getItem ("atualLocation"));
 
 	var disp = document.getElementById('loc');
-	disp.innerHTML = "Come here in future again [" + lat + ", " + longt + "]";
+	disp.innerHTML = "Come here in future again [" + lat + ", " + longt + atualLocation['city'] +", " + atualLocation['country']+ "]";
 }
