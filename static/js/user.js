@@ -1,5 +1,6 @@
 var logged_in = false;
 
+
 function userDisplay(mail) {
   user_display.style.display = "initial";
   var user_info = JSON.parse(sessionStorage.getItem(mail));
@@ -70,15 +71,18 @@ window.onload = function () {
   const age = document.querySelector("#age");
   const favorite_dishes_display = document.querySelector("#bmi_display");
   const recommendations = document.querySelector("#recommendations");
-
+  
+existing_account.style.display= "" ;
   existing_account.onclick = function (event) {
     showLogin(event);
+    existing_account.style.display= "none" ;
   };
 
 
   registration_form.addEventListener("submit", function (event) {
-
+    
     event.preventDefault();
+    existing_account.style.display= "none" ;
     registration_mail = registration_form.querySelector(
       `input[name=${"mail"}]`
     ).value;
